@@ -34,9 +34,10 @@ After some time, the service I’m working on started to drop connections. The i
 ```
 prlimit -p process_id
 ```
-
+```
 # or looking up a per process limits file
 cat /proc/process_id/limits
+```
 
 So, after I queried the limits of the service process, it turned out that it had a hard limit of 4096 and a soft limit of 1024. I added this line to a /etc/systemd/system.conf file:
 ```
